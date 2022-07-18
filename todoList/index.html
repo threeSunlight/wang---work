@@ -1,28 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>TodoList</title>
-  
-    <link rel="stylesheet" href="todoList.css" />
-  </head>
-  <body>
-    <div class="myhead">
-      <h2>My ToDo List</h2>
-      <table>
-        <tr>
-          <td>
-            <input type="text" placeholder="请输入待办事项..." id="things" />
-          </td>
-          <td><span id="add" onclick="addElement()">add</span></td>
-        </tr>
-      </table>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>列表任务清单</title>
+  <link rel="stylesheet" href="./todoList.css" />
+</head>
+
+<body>
+  <div class="container">
+    <!-- 我们实现的功能点有 头部,中间,已完成,未完成,清空已勾选,删除,总条数 -->
+    <header>
+      <div class="img-wrapper">
+        <img src="./assest/edit.svg" alt="todo" class="img-content"/>
+        
+      </div>
+      <div class="title">今日TODO</div>
+    </header>
+    <div>
+      <h1 class="need-dothings">~今天我需要做的事情~</h1>
+      <!-- 头部有输入框 -->
+      <input type="text" class="input-todoList" placeholder="请输入未完成的list">
+      <button class="submit-btn">添加</button>
     </div>
+    <content>
+      <ul>
+        <li class="li-style">
+          <div class="li-style-div">
+            <input type="checkbox" class="checkbox"></input>
+            <p class="li-style-div-content">我是mock数据</p>
+          </div>
+          <button class="button-close">X</button>
+        </li>
+        <li class="li-style">
+          <div class="li-style-div">
+            <input type="checkbox" class="checkbox"></input>
+            <p class="li-style-div-content">我是mock数据</p>
+          </div>
+          <button class="button-close">X</button>
+        </li>
+        <li class="li-style">
+          <div class="li-style-div">
+            <input type="checkbox" class="checkbox"></input>
+            <p class="li-style-div-content">我是mock数据</p>
+          </div>
+          <button class="button-close">X</button>
+        </li>
+      </ul>
+      <!-- 中间内容区包括列表展示和多选框以及删除按钮 -->
+    </content>
+    <footer>
+      <div id="item-current">总条数</div>
+      <button class="button-active">查看所有</button>
+      <button>待完成</button>
+      <button>已完成</button>
+      <button>清空所有</button>
+      <!-- 尾部,有总条数,已完成,待完成,清空,查看全部等功能 -->
+    </footer>
 
-    <ul></ul>
+  </div>
+</body>
 
-    <div class="test2"></div>
-  </body>
-  <!--将JavaScript元素放在后面，否则在执行JavaScript的时候，dom树还未构建，会出现意想不到的错误-->
-  <script src="todoList.js" type="text/javascript"></script>
 </html>

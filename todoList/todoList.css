@@ -54,15 +54,43 @@ li {
 input[type="checkbox"] {
   cursor: pointer;
   vertical-align: middle;
-
 }
 
-
+input[type="checkbox"] {
+  width:0px;
+  height: 0px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 14px;
+  position: relative;
+}
+input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 0;
+  background: #fff;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #d9d9d9;
+}
+input[type="checkbox"]:checked::before {
+  content: "\2713";
+  background-color: #fe7345;
+  position: absolute;
+  top: 9px;
+  left: 0;
+  width: 100%;
+  border: 0px solid #e50232;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
 
 input[type="text"]:focus-visible {
   outline: 0;
 }
-
 
 li:first-child {
   margin-top: 20px;
@@ -82,7 +110,6 @@ button {
 
 /* 定义动画关键帧，关键帧的名字为test */
 @keyframes flipInX-132cabf7 {
-
   0% {
     transform: rotateX(90deg);
     opacity: 0;
@@ -96,7 +123,7 @@ button {
     -moz-transform: rotateX(20deg);
     -ms-transform: rotateX(20deg);
     -o-transform: rotateX(20deg);
-}
+  }
   100% {
     transform: rotateX(0deg);
     opacity: 1;
@@ -194,6 +221,7 @@ button {
   text-overflow: ellipsis;
   overflow: hidden;
   padding-right: 7px;
+ padding-left: 16px;
 }
 
 .button {
@@ -250,4 +278,3 @@ footer > button:hover {
   color: #fff;
   border-radius: 10px !important;
 }
-

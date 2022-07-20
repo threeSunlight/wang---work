@@ -51,10 +51,10 @@
     <footer>
       <div id="item-current" class="button">无事项</div>
       <!-- <button class="button-active">查看所有</button> -->
-      <button onclick="viewAllInfo()" class="button">查看所有</button>
-      <button onclick="toBeCompleted()" class="button">待完成</button>
-      <button onclick="completed()" class="button">已完成</button>
-      <button onclick="clearAll()" class="button">清空所有</button>
+      <button onclick="viewAllInfo()" class="button" id="allinfo">查看所有</button>
+      <button onclick="toBeCompleted()" class="button" id="completed_todo">待完成</button>
+      <button onclick="completed()" class="button" id="completed_order">已完成</button>
+      <button onclick="clearAll()" class="button" id="clear_completed">清空所有</button>
       <!-- 尾部,有总条数,已完成,待完成,清空,查看全部等功能 -->
     </footer>
   </div>

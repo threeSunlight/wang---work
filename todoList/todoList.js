@@ -55,22 +55,26 @@ function circulation(inputValue) {
 /**
  * 根据数据的变化进行生成html
  */
-function circulationHtml(date) {
+function circulationHtml(date, checkId) {
   // 清空原来的元素
   ul.innerHTML = ''
    date.forEach((item) => {
-    let li = document.createElement("li");
-     li.className = "li-style";
+    //创建button按钮
+    // let button = document.createElement('button')
+    // button.className = item.checked ? "li-style completed" : 'li-style'
+    // 创建li标签
+     let li = document.createElement("li");
+     li.className = item.id == checkId &&  item.checked ? ' completed ' : item.checked ? "need-completed" : ''
      li.id = item.id
      li.innerHTML = ` 
-      <div class="li-style-div">
-        <input type="checkbox" class="checkbox" id=${item.id} ${
-          item.checked ? "checked" : null
-        } onchange="changeCheckboxDate(this)"></input>
-        <p class="li-style-div-content">${item.value}</p>
-      </div>
-     <button class="button-close" id=${item.id}  onclick=deleteDate(this)>X</button>
-    `;
+        <div class="li-style-div">
+            <input type="checkbox" class="checkbox" id=${item.id} ${
+            item.checked ? "checked" : null
+            } onchange="changeCheckboxDate(this)"></input>
+            <p class="li-style-div-content">${item.value}</p>
+        </div>
+        <button class= ${item.id == checkId &&  item.checked ? ' completed ' : item.checked? "need-completed button-close " : "button-close"}  id=${item.id}  onclick=deleteDate(this)>X</button>
+      `;
    ul.append(li)
   });
   changeLeftItem(date)
@@ -93,7 +97,7 @@ function changeCheckboxDate(ele) {
             item.checked = !item.checked
         }
     })
-    circulationHtml(todoArray)
+    circulationHtml(todoArray, ele.id)
 }
 
 
@@ -111,6 +115,10 @@ function changeLeftItem(data) {
 function toBeCompleted() {
     let result = todoArray.filter(item => !item.checked )
     circulationHtml(result)
+    document.getElementById("completed_order").classList.remove('clickButton');
+    document.getElementById("allinfo").classList.remove('clickButton');
+    document.getElementById("completed_todo").classList.add('clickButton');
+    document.getElementById("clear_completed").classList.remove('clickButton');
 }
 
 /**
@@ -120,6 +128,10 @@ function toBeCompleted() {
  function completed() {
     let result = todoArray.filter(item => item.checked )
     circulationHtml(result)
+    document.getElementById("completed_order").classList.add('clickButton');
+    document.getElementById("allinfo").classList.remove('clickButton');
+    document.getElementById("completed_todo").classList.remove('clickButton');
+    document.getElementById("clear_completed").classList.remove('clickButton');
 }
 
 /**
@@ -129,12 +141,23 @@ function toBeCompleted() {
 function clearAll() {
     todoArray=[]
     ul.innerHTML = ''
+   
     document.getElementById('item-current').innerText = '无事项'
+    document.getElementById("completed_order").classList.remove('clickButton');
+    document.getElementById("allinfo").classList.remove('clickButton');
+    document.getElementById("completed_todo").classList.remove('clickButton');
+    document.getElementById("clear_completed").classList.add('clickButton');
 }
 
 /**
  * 查看所有
  */
 function viewAllInfo() {
+   
     circulationHtml(todoArray)
+    document.getElementById("completed_order").classList.remove('clickButton');
+    document.getElementById("allinfo").classList.add('clickButton');
+    document.getElementById("completed_todo").classList.remove('clickButton');
+    document.getElementById("clear_completed").classList.remove('clickButton');
 }
+

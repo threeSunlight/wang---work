@@ -7,7 +7,8 @@ body {
   justify-content: center;
   background-image: linear-gradient(90deg, #ffafbd, #ffc3a0);
   background-repeat: no-repeat;
-  font-family:'Microsoft YaHei',微软雅黑,'MicrosoftJhengHei',华文细黑,'STHeiti','MingLiu',cursive,sans-serif
+  font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑,
+    "STHeiti", "MingLiu", cursive, sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -18,7 +19,12 @@ header {
   justify-content: center;
 }
 
-footer{
+p {
+  margin: 0;
+  padding: 0;
+}
+
+footer {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
@@ -38,31 +44,63 @@ li {
   list-style: none;
   padding: 0;
   margin: 0;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 10px;
   font-family: cursive;
   font-weight: 800;
 }
 
-input[type='checkbox'] {
+input[type="checkbox"] {
   cursor: pointer;
+  vertical-align: middle;
+
 }
+
+
 
 input[type="text"]:focus-visible {
   outline: 0;
 }
-li:first-child{
-  margin-top: 10px;
-  
+
+
+li:first-child {
+  margin-top: 20px;
 }
 
-li{
+li {
   display: flex;
   justify-content: space-between;
 }
 
-button{
+button {
+  cursor: pointer;
   border: 0px;
   font-family: cursive;
   background-color: #fff;
+}
+
+/* 定义动画关键帧，关键帧的名字为test */
+@keyframes flipInX-132cabf7 {
+
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  40% {
+    transform: rotateX(-10deg);
+  }
+  70% {
+    transform: rotateX(20deg);
+    -webkit-transform: rotateX(20deg);
+    -moz-transform: rotateX(20deg);
+    -ms-transform: rotateX(20deg);
+    -o-transform: rotateX(20deg);
+}
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
 }
 
 .container {
@@ -141,28 +179,25 @@ button{
   transform: rotate(4deg);
   border-radius: 6px;
   transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
 }
-.li-style-div{
+.li-style-div {
   display: flex;
   justify-content: start;
 }
-.button-close{
+.button-close {
   cursor: pointer;
-    margin: 0 -8px 0 auto;
-    padding: 0 8px;
-    border: 0px;
-    background-color: #fff;
+  border: 0px;
+  background-color: #fff;
 }
-.li-style-div-content{
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    padding-right: 7px;
+.li-style-div-content {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-right: 7px;
 }
 
-.button{
-  background-color:#fff;
+.button {
+  background-color: #fff;
   padding: 4px 6px;
   border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -170,7 +205,7 @@ button{
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
 }
-.button-active{
+.button-active {
   background-color: #fe7345;
   color: #fff;
   padding: 4px 6px;
@@ -181,9 +216,38 @@ button{
   -o-border-radius: 6px;
 }
 
-footer>button:hover{
+footer > button:hover {
   background-color: #fe7345;
   color: #fff;
   padding: 4px 6px;
   border-radius: 6px;
 }
+
+.clickButton {
+  cursor: pointer;
+  background-color: #fe7345;
+  color: #fff;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+/* 翻转完整的实现 */
+.completed {
+  background-color: #fe7345 !important;
+  color: #fff;
+  border-radius: 10px !important;
+  animation: flipInX-132cabf7 0.75s ease-in-out both;
+  -webkit-border-radius: 10px !important;
+  -moz-border-radius: 10px !important;
+  -ms-border-radius: 10px !important;
+  -o-border-radius: 10px !important;
+  -webkit-animation: flipInX-132cabf7 0.75s ease-in-out both;
+}
+
+/**当已经选择完后,固定添加属性*/
+.need-completed {
+  background-color: #fe7345 !important;
+  color: #fff;
+  border-radius: 10px !important;
+}
+

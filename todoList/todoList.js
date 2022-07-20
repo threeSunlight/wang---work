@@ -59,9 +59,6 @@ function circulationHtml(date, checkId) {
   // 清空原来的元素
   ul.innerHTML = ''
    date.forEach((item) => {
-    //创建button按钮
-    // let button = document.createElement('button')
-    // button.className = item.checked ? "li-style completed" : 'li-style'
     // 创建li标签
      let li = document.createElement("li");
      li.className = item.id == checkId &&  item.checked ? ' completed ' : item.checked ? "need-completed" : ''

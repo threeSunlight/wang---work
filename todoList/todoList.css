@@ -263,6 +263,7 @@ footer > button:hover {
 .completed {
   background-color: #fe7345 !important;
   color: #fff;
+  text-decoration: line-through;
   border-radius: 10px !important;
   animation: flipInX-132cabf7 0.75s ease-in-out both;
   -webkit-border-radius: 10px !important;
@@ -275,6 +276,7 @@ footer > button:hover {
 /**当已经选择完后,固定添加属性*/
 .need-completed {
   background-color: #fe7345 !important;
+  text-decoration: line-through;
   color: #fff;
   border-radius: 10px !important;
 }

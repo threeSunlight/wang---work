@@ -1,3 +1,42 @@
+/**
+ * 思路:
+ * 1. content: ul,li 渲染是通过数组渲染的, []
+ * 2. 数组中内容分析: 选中: 状态,checked,(true,false)
+ *                  删除+样式翻转: id
+ *                  内容: value
+ *             最终数组的样子:  [{checked: boolean, id:number, value: string}]    
+ * 3. 新增:     {checked: boolean, id:number, value: string}   通过第4个方法push
+ *              3.1 id如何实现自增: nextId:1 ,
+ *               判断一下数组长度是不是为空,新增, 
+ *                  > 0, 我们id就需要自增了, nextId++
+ * 4. 获取新增的内容: e.target.value     
+ * 5. 删除:   获取当前li标签的id , --- this  
+ *              5.1 Button按钮吧id传回来,this,我们要在button上添加id属性,(this)
+ *              5.2 fliter,
+ * 6. fotter: 左边:未完成: []中删选出checked为false的数组,获取长度,  调用页面渲染方法
+ *            all: 渲染[],调用页面渲染方法
+ *            active:     []中删选出checked为false的数组,获取长度,调用页面渲染方法
+ *            actived: !和上面逻辑是相反的,调用页面渲染方法
+ *             清空所有: 清空,数组,并且清空html,减少dom操作,提高性能,不调用页面渲染方法
+ * 
+ * 7. 封装渲染html---函数
+ *      7.1 ul --- 我们获取到页面的ul标签即可
+ *      7.2 数组循环渲染li标签生成内容的
+ *      7.3 li ---   
+ *              createElement('li')
+ *              li.id = 
+ *              li.className = 'item.checked'
+ *          <li id="item.id">
+ *              <div>
+ *                  <input type="checkbox" id=""  oncang.....></input>  
+ *                  <p></p>           
+ *              </div>
+ *              <button onclick="" id="item.id">X</button>
+ *          </li>
+ * 
+ * 数据->视图 
+ */
+
 /**获取ul标签 */
 let ul = document.getElementsByTagName("ul")[0];
 

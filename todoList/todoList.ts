@@ -27,7 +27,8 @@ let todoArray: TodoListArray = [];
 /**定义数组自增ID */
 let nextId: number = 1
 
-
+let txt1: HTMLElement | null=document.getElementById('inputValue') as HTMLInputElement
+txt1.focus()
 /**
  * 获取新增数据内容
  */
@@ -63,6 +64,7 @@ function circulation(inputValue: string) {
 }
 
 
+
 /**
  * 根据数据的变化进行生成html
  */
@@ -72,7 +74,7 @@ function circulationHtml(date: TodoListArray, checkId?: number) {
     date.forEach((item) => {
         // 创建li标签
         let li: HTMLLIElement = document.createElement("li");
-        
+        // li.className = item.id == checkId && item.checked ? ' completed ' : item.checked ? "need-completed" : " "
         if(item.id == checkId && item.checked) {
             li.className = 'completed'
         } else if(item.checked) {

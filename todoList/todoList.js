@@ -64,7 +64,7 @@ function circulationHtml(date, checkId) {
             li.className = '';
         }
         li.id = "".concat(item.id);
-        if (item.id == checkId && item.checked) { }
+        // if(item.id == checkId && item.checked) {}
         li.innerHTML = " \n          <div class=\"li-style-div\">\n              <input type=\"checkbox\" class=\"checkbox\" id=".concat(item.id, " ").concat(item.checked ? "checked" : null, " onchange=\"changeCheckboxDate(this)\"></input>\n              <p class=\"li-style-div-content\">").concat(item.value, "</p>\n          </div>\n          <button class= ").concat(item.id == checkId && item.checked ? ' completed ' : item.checked ? "need-completed button-close " : "button-close", "  id=").concat(item.id, "  onclick=deleteDate(this)>X</button>\n        ");
         ul.append(li);
     });

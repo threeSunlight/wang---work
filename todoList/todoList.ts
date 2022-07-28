@@ -95,7 +95,7 @@ function circulationHtml(date: TodoListArray, checkId?: number) {
         }
         li.id = `${item.id}`
        
-        if(item.id == checkId && item.checked) {}
+        // if(item.id == checkId && item.checked) {}
         li.innerHTML = ` 
           <div class="li-style-div">
               <input type="checkbox" class="checkbox" id=${item.id} ${item.checked ? "checked" : null

@@ -1,3 +1,24 @@
+/**
+ * TODO: 思路
+ * 1.功能点: 时间,名字渲染,颜色随机,天选,四个按钮
+ * 
+ * mock -- 假数据
+ * 
+ * 
+ * 
+ * 
+ * TODO: 1. 完善重复选人
+ *       2. 渐变色,用两种方式来完成(1. rgb(), 2. #6位)
+ * 
+ * 
+ */
+
+
+
+
+
+
+
 
 // 定义学生数据
 const dataList = [
@@ -225,7 +246,6 @@ const saveSpan = document.getElementById('name');
 saveSpan.style.backgroundImage = randomColor()
 
 
-renderStudent()
 /**
  * 渲染同学,因为进页面需要展示,所以要自调用
  */
@@ -243,17 +263,19 @@ function renderStudent(): void {
     }))
 }
 
+renderStudent()
+
 /**
  * 单人点名
  */
 function oneStudent(event: { target: { innerText: string } }): void {
-    clickChecked(event.target.innerText)
+    // clickChecked(event.target.innerText)
     if (event.target.innerText.includes('停')) {
         oneButton.innerText = '单人点名 '
         let randoms = randomFc(allStudentList)
         // 根据随机数,获取选中的同学
         let checkedStudents: Student = allStudentList[randoms]
-        // 将两个人放在一起
+        
         saveSpan.style.backgroundImage = randomColor()
         saveSpan.innerText = checkedStudents.name
         saveCheckedStudentDom.appendChild(saveSpan)
@@ -361,6 +383,7 @@ function randomParams() {
 }
 /**渐变颜色随机数 */
 function randomColor() {
+   
     const start = randomParams()
     const end = randomParams()
     const color = `linear-gradient(to right, rgb(${start},${randomParams()},${randomParams()}), rgb(${end},${randomParams()},${randomParams()}))`

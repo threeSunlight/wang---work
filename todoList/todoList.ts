@@ -9,6 +9,14 @@ interface ArrayItem {
     value: string
 }
 
+/**接口校验 */
+interface EventParams {
+    keyCode: number,
+    target: {
+        value: string
+    }
+}
+
 type TodoListArray = Array<ArrayItem>
 
 
@@ -24,6 +32,7 @@ let clear_completed: HTMLElement | null = document.getElementById("clear_complet
 let todoArray: TodoListArray = [];
 
 
+
 /**定义数组自增ID */
 let nextId: number = 1
 
@@ -32,11 +41,12 @@ txt1.focus()
 /**
  * 获取新增数据内容
  */
-function addTodoList(event: { keyCode: number; }) {
+function addTodoList(event: EventParams) {
+
     if (!event || event.keyCode === 13) {
         // 首先获取input框的输入内容
         //@ts-ignore
-        let inputValue: string = document.getElementsByClassName("input-todoList")[0].value;
+        let inputValue: string = event.target.value
         if (inputValue) {
             circulation(inputValue);
              //@ts-ignore
@@ -49,11 +59,12 @@ function addTodoList(event: { keyCode: number; }) {
  * 新增数据,并且保证数据id的唯一性
  */
 function circulation(inputValue: string) {
+    console.log(todoArray, 'todoArray');
     // 首先获取ul标签
     // 存储数据,li标签的循环
     if (todoArray.length > 0) {
         nextId++
-    }
+    } 
     let addItemValue: ArrayItem = {
         checked: false,
         id: nextId,

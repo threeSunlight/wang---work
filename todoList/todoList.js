@@ -9,6 +9,8 @@ var clear_completed = document.getElementById("clear_completed");
 var todoArray = [];
 /**定义数组自增ID */
 var nextId = 1;
+var txt1 = document.getElementById('inputValue');
+txt1.focus();
 /**
  * 获取新增数据内容
  */
@@ -16,7 +18,7 @@ function addTodoList(event) {
     if (!event || event.keyCode === 13) {
         // 首先获取input框的输入内容
         //@ts-ignore
-        var inputValue = document.getElementsByClassName("input-todoList")[0].value;
+        var inputValue = event.target.value;
         if (inputValue) {
             circulation(inputValue);
             //@ts-ignore
@@ -28,6 +30,7 @@ function addTodoList(event) {
  * 新增数据,并且保证数据id的唯一性
  */
 function circulation(inputValue) {
+    console.log(todoArray, 'todoArray');
     // 首先获取ul标签
     // 存储数据,li标签的循环
     if (todoArray.length > 0) {
@@ -50,6 +53,7 @@ function circulationHtml(date, checkId) {
     date.forEach(function (item) {
         // 创建li标签
         var li = document.createElement("li");
+        // li.className = item.id == checkId && item.checked ? ' completed ' : item.checked ? "need-completed" : " "
         if (item.id == checkId && item.checked) {
             li.className = 'completed';
         }
